@@ -1,0 +1,43 @@
+############################
+# GRAYLOG CONFIGURATION FILE
+############################
+#
+is_master = {{ graylog_is_master }}
+node_id_file = {{ graylog_node_id_file }}
+password_secret = 
+root_password_sha2 = 
+plugin_dir = {{ graylog_plugin_dir }}
+rest_listen_uri = {{ graylog_rest_listen_uri }}
+rest_transport_uri = {{ graylog_rest_transport_uri }}
+web_listen_uri = {{ graylog_web_listen_uri }}
+rotation_strategy = {{ graylog_rotation_strategy }}
+elasticsearch_max_docs_per_index = {{ graylog_elasticsearch_max_docs_per_index }}
+elasticsearch_max_number_of_indices = {{ graylog_elasticsearch_max_number_of_indices }}
+retention_strategy = {{ graylog_retention_strategy }}
+elasticsearch_shards = {{ graylog_elasticsearch_shards }}
+elasticsearch_replicas = {{ graylog_elasticsearch_replicas }}
+elasticsearch_index_prefix = {{ graylog_elasticsearch_index_prefix }}
+allow_leading_wildcard_searches = {{ graylog_allow_leading_wildcard_searches }}
+allow_leading_wildcard_searches = {{ graylog_allow_leading_wildcard_searches }}
+allow_highlighting = {{ graylog_allow_highlighting }}
+elasticsearch_analyzer = {{ graylog_elasticsearch_analyzer }}
+output_batch_size = {{ graylog_output_batch_size }}
+output_flush_interval = {{ graylog_output_flush_interval }}
+output_fault_count_threshold = {{ graylog_output_fault_count_threshold }}
+output_fault_penalty_seconds = {{ graylog_output_fault_penalty_seconds }}
+processbuffer_processors = {{ graylog_processbuffer_processors }}
+outputbuffer_processors = {{ graylog_outputbuffer_processors }}
+processor_wait_strategy = {{ graylog_processor_wait_strategy }}"
+ring_size = "{{ graylog_ring_size }}
+inputbuffer_ring_size = {{ graylog_inputbuffer_ring_size }}
+inputbuffer_processors = {{ graylog_inputbuffer_processors }}
+inputbuffer_wait_strategy = {{ graylog_inputbuffer_wait_strategy }}
+message_journal_enabled = {{ graylog_message_journal_enabled }}
+message_journal_dir = {{ graylog_message_journal_dir }}
+lb_recognition_period_seconds = {{ graylog_lb_recognition_period_seconds }}
+mongodb_uri = {{ graylog_mongodb_uri }}
+mongodb_max_connections = {{ graylog_mongodb_max_connections }}
+mongodb_threads_allowed_to_block_multiplier = {{ graylog_mongodb_threads_allowed_to_block_multiplier }}
+content_packs_dir = {{ graylog_content_packs_dir }}
+content_packs_auto_load = {{ graylog_content_packs_auto_load }}
+proxied_requests_thread_pool_size = {{ graylog_proxied_requests_thread_pool_size }}

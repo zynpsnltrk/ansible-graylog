@@ -1,0 +1,21 @@
+---
+# handlers file for ansible-graylog
+- name: reload systemd
+  sudo: yes
+  command: systemctl daemon-reload
+
+- name: enable elasticsearch service
+  sudo: yes
+  command: systemctl enable elasticsearch.service
+
+- name: restart elasticsearch service
+  sudo: yes
+  command: systemctl restart elasticsearch.service
+
+- name: enable graylog-server service
+  sudo: yes
+  command: systemctl enable graylog-server.service
+
+- name: restart graylog-server service
+  sudo: yes
+  command: systemctl restart graylog-server.service

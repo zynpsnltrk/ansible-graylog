@@ -1,0 +1,20 @@
+#install & conf elasticsearch
+- name: download elasticsearch
+  shell: "wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add -"
+
+- name: elasticsearch source list
+  command: echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-5.x.list
+
+- name: install elasticsearch
+  apt:
+    pkg: elasticsearch
+    update_cache: yes
+
+- name: configure elasticsearch
+  lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    line: 'cluster.name: graylog'
+  notify:
+    - reload systemd
+    - enable elasticsearch service
+    - restart elasticsearch service

@@ -1,0 +1,35 @@
+#install & conf graylog-server
+- name: download graylog repository
+  get_url:
+    url: "{{ graylog_package_url }}"
+    dest: "{{ graylog_package_path }}/{{ graylog_package }}.deb"
+
+- name: install graylog repository
+  apt: 
+    deb: "{{ graylog_package_path }}/{{ graylog_package }}.deb"
+    state: installed
+    dpkg_options: 'force-all'
+    update_cache: yes
+
+- name: install graylog-server
+  apt:
+    pkg: graylog-server
+    update_cache: yes
+
+- name: remove graylog conf
+  file:
+    path: /etc/graylog/server/server.conf
+    state: absent
+
+- name: configure graylog-server
+  template:
+    src: server.conf.j2
+    dest: /etc/graylog/server/server.conf
+
+- name: generate and set password secret keys
+  shell: "{{ item }}"
+  with_items: "{{ set_secret_keys }}"
+  notify:
+    - reload systemd
+    - enable graylog-server service
+    - restart graylog-server service
